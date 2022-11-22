@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace AnalyticalSystemSedge.App.Pages
-{
+{ 
     public class PrivacyModel : PageModel
     {
         private readonly ILogger<PrivacyModel> _logger;
@@ -14,6 +14,8 @@ namespace AnalyticalSystemSedge.App.Pages
 
         public void OnGet()
         {
+
+          
         }
     }
 }

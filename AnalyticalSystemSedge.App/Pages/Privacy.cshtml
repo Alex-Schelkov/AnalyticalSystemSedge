@@ -1,8 +1,53 @@
 ﻿@page
+@using AnalyticalSystemSedge.App.Components
 @model PrivacyModel
 @{
+   
     ViewData["Title"] = "Privacy Policy";
-}
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+
+}
+
+@HtmlHelperExtentions.Chart()
+
+<script src="https://api-maps.yandex.ru/1.1/index.xml" type="text/javascript"></script>
+<script type="text/javascript">
+    // Создает обработчик события window.onLoad
+    YMaps.jQuery(function () {
+        // Создает экземпляр карты и привязывает его к созданному контейнеру
+        var map = new YMaps.Map(YMaps.jQuery("#YMapsID")[0]);
+
+        // Устанавливает начальные параметры отображения карты: центр карты и коэффициент масштабирования
+        map.setCenter(new YMaps.GeoPoint(56.860063, 52.217869), 6);
+
+        map.addOverlay(new YMaps.GeoPoint(50.801395, 55.131188));
+   
+
+        var polygon = new YMaps.Polygon([new YMaps.GeoPoint(37.7, 55.7),
+        new YMaps.GeoPoint(37.7, 55.8),
+        new YMaps.GeoPoint(37.8, 55.8),
+        new YMaps.GeoPoint(37.8, 55.7),
+        new YMaps.GeoPoint(37.7, 55.7)
+        ]);
+
+        map.addOverlay(polygon);
+
+
+        var style = new YMaps.Style();
+        style.polygonStyle = new YMaps.PolygonStyle();
+        style.polygonStyle.fill = true;
+        style.polygonStyle.outline = true;
+        style.polygonStyle.strokeWidth = 10;
+        style.polygonStyle.strokeColor = "ffff0088";
+        style.polygonStyle.fillColor = "ff000055";
+
+        polygon.setStyle(style);
+    })
+
+
+
+</script>
+
+<div id="YMapsID" style="width:800px;height:600px"></div>
+
+
